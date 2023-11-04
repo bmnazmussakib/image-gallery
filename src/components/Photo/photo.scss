@@ -1,0 +1,28 @@
+.image-wrapper {
+    position: relative;
+        .input-wrapper {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            z-index: 99;
+    
+            input {
+                opacity: 0;
+            }
+    
+            input[type="checkbox"]:checked {
+                opacity: 1;
+            }
+        }
+    
+        &:hover {
+            .input-wrapper{
+                input {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    
+    
+    

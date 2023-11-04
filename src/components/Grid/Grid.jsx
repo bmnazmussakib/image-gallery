@@ -1,16 +1,10 @@
-import React from 'react'
+import React from "react";
+import "./grid.scss";
 
-export default function Grid({children, columns}) {
+export function Grid({ children }) {
   return (
-    <div
-    style={{
-        display: 'grid',
-        gridTemplateColumns: `repeat(${columns}, 1fr)`,
-        gridGap: 15,
-        padding: 10,
-      }}
-    >
-        {children}
+    <div className="grid">
+      {children}
     </div>
-  )
+  );
 }

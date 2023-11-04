@@ -1,10 +1,10 @@
-import { useSortable } from "@dnd-kit/sortable";
 import React from "react";
-import Photo from "../Photo/Photo";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import { Photo } from "../Photo/Photo";
 
-export default function SortableImage({ id, url, handleOnChange, index, ...props }) {
-  const sortable = useSortable({ id: id });
-
+export const SortablePhoto = (props) => {
+  const sortable = useSortable({ id: props.id });
   const {
     attributes,
     listeners,
@@ -14,16 +14,22 @@ export default function SortableImage({ id, url, handleOnChange, index, ...props
     transition,
   } = sortable;
 
+  const cardStyle = {
+    transition,
+    transform: CSS.Transform.toString(transform)
+  };
+
   return (
     <>
       <Photo
+        style={cardStyle}
         ref={setNodeRef}
         {...props}
         {...attributes}
         {...listeners}
-        id={id}
-        handleOnChange={handleOnChange}
+        id={props?.id}
+        handleOnChange={props?.handleOnChange}
       />
     </>
   );
-}
+};
