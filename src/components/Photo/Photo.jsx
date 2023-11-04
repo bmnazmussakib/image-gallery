@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from "react";
-import './photo.scss';
+import "./photo.scss";
 
 export const Photo = forwardRef(
   ({ url, index, faded, style, id, handleOnChange, ...props }, ref) => {
@@ -16,8 +16,6 @@ export const Photo = forwardRef(
       ...style,
     };
 
-    const [isChecked, setIsChecked] = useState(false);
-
     return (
       <div
         style={index === 0 ? inlineStyles : {}}
@@ -26,9 +24,7 @@ export const Photo = forwardRef(
         <div className="input-wrapper">
           <input type="checkbox" value={id} onChange={handleOnChange} />
         </div>
-        <div className="card" ref={ref} style={inlineStyles} {...props}></div>
-        {/* <div ref={ref}  style={inlineStyles} {...props} >
-        </div> */}
+        <div className="card" ref={ref} style={inlineStyles} {...props} />
       </div>
     );
   }
