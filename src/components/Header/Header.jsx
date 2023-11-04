@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Header({ handleDelete, selectedItem, setConfirm }) {
+export default function Header({ selectedItem, allItems }) {
   return (
     <>
       <nav
@@ -31,13 +31,15 @@ export default function Header({ handleDelete, selectedItem, setConfirm }) {
             )}
           </div>
           {selectedItem.length > 0 && (
-            <button
-              className="btn btn-danger"
-              data-mdb-toggle="modal"
-              data-mdb-target="#deleteModal"
-            >
-              Delete
-            </button>
+            <div>
+              <button
+                className="btn btn-danger"
+                data-mdb-toggle="modal"
+                data-mdb-target="#deleteModal"
+              >
+                Delete
+              </button>
+            </div>
           )}
         </div>
       </nav>

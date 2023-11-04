@@ -29,6 +29,8 @@ export default function Gallery() {
   const [selectedItem, setSelectedItem] = useState([]);
   const [confirm, setConfirm] = useState(false);
 
+  const [selectAll, setSelectAll] = useState(false);
+
   // Set up sensors for drag-and-drop functionality
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
 
@@ -90,6 +92,8 @@ export default function Gallery() {
     });
   };
 
+
+
   return (
     <>
       {/* Render the Header component with relevant props */}
@@ -97,6 +101,7 @@ export default function Gallery() {
         handleDelete={handleDelete}
         selectedItem={selectedItem}
         setConfirm={setConfirm}
+        allItems = {items}
       />
 
       <div className="container">
@@ -119,6 +124,7 @@ export default function Gallery() {
                   url={items?.img}
                   index={index}
                   handleOnChange={handleOnChange}
+                  selectAll={selectAll}
                 />
               ))}
             </Grid>

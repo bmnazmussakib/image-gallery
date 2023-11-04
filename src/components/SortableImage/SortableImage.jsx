@@ -9,7 +9,7 @@ import { Photo } from "../Photo/Photo";
  * @returns {JSX.Element} - Rendered SortablePhoto component.
  */
 
-export const SortablePhoto = ({ id, handleOnChange, ...props }) => {
+export const SortablePhoto = ({ id, handleOnChange, selectAll, ...props }) => {
   // Use the useSortable hook to enable sorting functionality
   const sortable = useSortable({ id: id });
 
@@ -39,6 +39,7 @@ export const SortablePhoto = ({ id, handleOnChange, ...props }) => {
         {...listeners}
         id={id}
         handleOnChange={handleOnChange}
+        selectAll={selectAll}
       />
     </>
   );
