@@ -1,7 +1,11 @@
 .image-wrapper {
   position: relative;
   transition: all 0.5s;
-  .input-wrapper {
+  background-color: transparent;
+  box-shadow: none;
+
+
+  .form-check {
     position: absolute;
     right: 20px;
     top: 20px;
@@ -15,11 +19,11 @@
     input[type="checkbox"]:checked {
       opacity: 1;
     }
+    
   }
 
   &:hover {
-    .input-wrapper {
-        filter: blur(0px) !important;
+    .form-check {
       input {
         opacity: 1;
       }

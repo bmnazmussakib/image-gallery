@@ -1,3 +1,4 @@
+// Import necessary dependencies and components
 import {
   DndContext,
   MouseSensor,
@@ -15,41 +16,49 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// Import data and custom components
 import data from "../../data.json";
 import { Grid } from "../Grid/Grid";
-import { SortablePhoto } from "../SortableImage/SortableImage";
 import Header from "../Header/Header";
+import { SortablePhoto } from "../SortableImage/SortableImage";
 
 export default function Gallery() {
+  // Initialize state variables
   const [items, setItems] = useState(data);
   const [activeId, setActiveId] = useState(null);
   const [selectedItem, setSelectedItem] = useState([]);
   const [confirm, setConfirm] = useState(false);
+
+  // Set up sensors for drag-and-drop functionality
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
 
+  // Handler for drag start event
   const handleDragStart = (event) => {
     setActiveId(event.active.id);
   };
 
+  // Handler for drag end event
   const handleDragEnd = (event) => {
     const { active, over } = event;
-    if (active.id == over.id) {
+    if (active.id === over.id) {
       return;
     }
 
     setItems((items) => {
-      const oldIndex = items.findIndex((item) => item.id == active.id);
-      const newIndex = items.findIndex((item) => item.id == over.id);
+      const oldIndex = items.findIndex((item) => item.id === active.id);
+      const newIndex = items.findIndex((item) => item.id === over.id);
       return arrayMove(items, oldIndex, newIndex);
     });
 
     setActiveId(null);
   };
 
+  // Handler for drag cancel event
   const handleDragCancel = () => {
     setActiveId(null);
   };
 
+  // Handler for checkbox state change
   const handleOnChange = (event) => {
     const { value, checked } = event.target;
     if (checked) {
@@ -61,8 +70,7 @@ export default function Gallery() {
     }
   };
 
-  //   console.log("selectedItem: ", selectedItem);
-
+  // Handler for item deletion
   const handleDelete = () => {
     // Filter the items to remove the ones with IDs in selectedItem
     const updatedItems = items.filter(
@@ -84,6 +92,7 @@ export default function Gallery() {
 
   return (
     <>
+      {/* Render the Header component with relevant props */}
       <Header
         handleDelete={handleDelete}
         selectedItem={selectedItem}
@@ -91,6 +100,7 @@ export default function Gallery() {
       />
 
       <div className="container">
+        {/* Set up the DndContext for drag-and-drop functionality */}
         <DndContext
           sensors={sensors}
           collisionDetection={closestCenter}
@@ -98,8 +108,10 @@ export default function Gallery() {
           onDragEnd={handleDragEnd}
           onDragCancel={handleDragCancel}
         >
+          {/* Create a sortable context for the grid */}
           <SortableContext items={items} strategy={rectSortingStrategy}>
             <Grid>
+              {/* Map and render the SortablePhoto components */}
               {items.map((items, index) => (
                 <SortablePhoto
                   key={items?.id}
@@ -111,27 +123,21 @@ export default function Gallery() {
               ))}
             </Grid>
           </SortableContext>
-
-          {/* <DragOverlay>
-          {activeId ? (
-            <Photo url={activeId} index={items.indexOf(activeId)} />
-          ) : null}
-        </DragOverlay> */}
         </DndContext>
       </div>
 
-      {/* Modal */}
+      {/* Modal for confirmation dialog */}
       <div
         class="modal fade"
-        id="exampleModal"
+        id="deleteModal"
         tabindex="-1"
-        aria-labelledby="exampleModalLabel"
+        aria-labelledby="deleteModalLabel"
         aria-hidden="true"
       >
         <div class="modal-dialog modal-dialog-centered modal-sm">
           <div class="modal-content">
             <div class="modal-header bg-danger ">
-              <h5 class="modal-title text-white" id="exampleModalLabel">
+              <h5 class="modal-title text-white" id="deleteModalLabel">
                 Are you sure?
               </h5>
             </div>
@@ -160,6 +166,7 @@ export default function Gallery() {
         </div>
       </div>
 
+      {/* Toast notification container */}
       <ToastContainer />
     </>
   );
