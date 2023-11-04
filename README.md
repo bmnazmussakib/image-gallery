@@ -31,5 +31,5 @@ Follow these instructions to get your copy of Your App Name up and running on yo
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/your-app-name.git
+   git clone https://github.com/bmnazmussakib/image-gallery.git
 
