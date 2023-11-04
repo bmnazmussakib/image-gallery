@@ -2,7 +2,7 @@
 
 Your App Name is a web application that allows users to create, manage, and sort a gallery of images with drag-and-drop functionality. It provides an intuitive interface for organizing and deleting images.
 
-![App Screenshot](screenshot.png)
+![App Screenshot]([screenshot.png](https://i.ibb.co/bdm41mY/screencapture-localhost-5173-2023-11-04-14-13-37.png))
 
 ## Table of Contents
 
