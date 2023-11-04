@@ -1,9 +1,36 @@
-# React + Vite
+# Your App Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Your App Name is a web application that allows users to create, manage, and sort a gallery of images with drag-and-drop functionality. It provides an intuitive interface for organizing and deleting images.
 
-Currently, two official plugins are available:
+![App Screenshot](screenshot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# image-gallery
+## Table of Contents
+
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- **Drag-and-Drop Sorting:** Easily rearrange the order of images by dragging and dropping them within the gallery.
+- **Image Selection:** Select multiple images for batch actions, such as deletion.
+- **Confirmation Modal:** Confirm the deletion of selected images to prevent accidental removal.
+- **User-Friendly:** An intuitive and responsive user interface for a seamless experience.
+
+## Getting Started
+
+Follow these instructions to get your copy of Your App Name up and running on your local machine.
+
+### Prerequisites
+
+- Node.js and npm installed on your machine.
+
+### Installation
+
+1. Clone the repository to your local machine:
+
+   ```bash
+   git clone https://github.com/yourusername/your-app-name.git
+
