@@ -1,4 +1,4 @@
-# Your App Name
+# Image Gallery
 
 Your App Name is a web application that allows users to create, manage, and sort a gallery of images with drag-and-drop functionality. It provides an intuitive interface for organizing and deleting images.
 
